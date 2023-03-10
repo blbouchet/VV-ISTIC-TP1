@@ -11,3 +11,9 @@
 5.  Shortly after the appearance of WebAssembly another paper proposed a mechanized specification of the language using Isabelle. The paper can be consulted here: https://www.cl.cam.ac.uk/~caw77/papers/mechanising-and-verifying-the-webassembly-specification.pdf. This mechanized specification complements the first formalization attempt from the paper. According to the author of this second paper, what are the main advantages of the mechanized specification? Did it help improving the original formal specification of the language? What other artifacts were derived from this mechanized specification? How did the author verify the specification? Does this new specification removes the need for testing?
 
 ## Answers
+
+R1. ![image](https://user-images.githubusercontent.com/113097128/224296898-f03aca4a-8e52-42ec-b073-d66ebc0a4a72.png)
+Il s’agit vraisemblablement d’un bug local, sans doute une mauvaise condition concernant la date, comme ce fût le cas pour le  Zune 30 de Microsoft. 
+Le bug n’impactait que certaines cartes à puces destinées aux clients de la banque allemande ZKA, empêchant toute transaction avec un terminal bancaire.
+Le fabricant des cartes impliquées, Gemalto, a réussi à apporter un correctif en attendant de fournir de nouvelles cartes corrigeant le problème.
+A posteriori, s’il s’agit d’une erreur dans l’expression d’une condition sur la date, une revue de code aurait permis de la mettre en avant. 
