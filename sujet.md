@@ -20,3 +20,12 @@ A posteriori, s’il s’agit d’une erreur dans l’expression d’une conditi
 
 R2. Le bug "COLLECTIONS-775", provenant de la communauté Apache, est lié au test CollectionUtilsTest.getFromMap() considéré comme 'flacky'.     Le problème est que sur la ligne 996, le assertEquals attend <{oneKey=one, zeroKey=zero}> mais cette hypothèse provient de 2 appels distincts à la fonction CollectionUtils.get(expected, 0) et CollectionUtils.get(expected, 1), qui va, à chaque fois utiliser un nouvel itérateur java. La fonction renvoie ensuite une map (appelée found) contenant des paires clé-valeur et cette map est comparée à une autre (expected). Dans certains cas, comme les 2 itérateurs utilisés sont différents, ils peuvent retourner des valeurs légèrement différentes et on se retrouve avec une seule des conditions vérifiées. Ce bug est local car il n'a rien à voir avec l'architecture du projet ni avec des éléments divers mais il est lié à quelques lignes de code. Dans ce scénario, puisque nous n'avons apparemment pas besoin d'une correspondance exacte entre les 2 maps, il a été décidé de simplement changer la condition assertEqual pour affirmer que les entrées 0 et 1 sont soit `zeroKey=zero` soit `oneKey=one`. De cette façon, nous éliminons l'aspect 'flacky' du test. 
 Aucun test supplémentaire n'a été ajouté.
+
+R3. - L’expérience qui a été réalisée est le test de disponibilité d’un système, c’est à dire qu'on voit l’impact  des pannes de certains services sur la disponibilité de notre système.  Dans ce cas, Netflix essaie de voir, si on fait échouer certain services, si l’utilisateur peut toujours trouver le contenu, et aussi regarder. Pour faire ces expériences, il faut préciser :
+- les hypothèses
+- -Les variables indépendantes
+- -Les variables dépendantes
+- -Le contexte
+
+Lors de ces expériences, NetFlix vérifie l'évolution de la variable :  SPS ( START PER SECOND ), par rapport aux streams lancés par seconde. Il ont observé des fluctuations de la valeur de cette variable selon les moments de la journée.
+D'autres entreprises font ce genre d'expérience comme :  Amazon, Google , Microsoft et Facebook.Google, par exemple, peut vérifier la variable : RPS ( research per second )  pour savoir si l’utilisateur peut faire ses recherches et obtient les résultats souhaités.
