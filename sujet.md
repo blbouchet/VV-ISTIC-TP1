@@ -35,3 +35,5 @@ la spécification formelle est un élément clé pour assurer la confiance et la
 Cependant, si la méthode constructive démontre qu’un algorithme est correct, cela ne dit rien quand à l’implémentation. Donc cela ne dispense pas de réaliser des tests, car la preuve formelle du langage ne garantit pas des erreurs de la part des développeurs, lors de l’implémentation, erreurs qui peuvent engendrer  des défaillances.
 
 R5. La mécanisation de la preuve mathématique du langage WebAssembly  présente plusieurs avantages, notamment le fait que ces preuves mathématiques sont abstraites, et qu’il est très utile de les confronter à la réalité concrète (par exemple le fait que la mémoire n’est pas infinie) afin d’apporter une preuve concrète de leur validité. Cela permet de générer une implémentation de référence. Ainsi, on pourra vérifier la validité des algorithmes et des structures de données utilisés dans le langage, ce qui peut aider à garantir la correction de tout programme écrit en WebAssembly.
+Ainsi, le fait de mécaniser permet de trouver des problèmes dans la spécification, ce qui garantit la solidité de cette spécification.
+
